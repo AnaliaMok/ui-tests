@@ -3,9 +3,17 @@ import { action } from '@storybook/addon-actions';
 
 import Button from '../components/Button';
 
-storiesOf('Button', module).add('default', () => {
+const padding = () => {
   return {
-    components: { Button },
-    template: `<Button text="Hello World" />`
+    template: '<div class="p-8"><story/></div>'
   };
-});
+};
+
+storiesOf('Button', module)
+  .addDecorator(padding)
+  .add('default', () => {
+    return {
+      components: { Button },
+      template: `<Button text="Dark Button" />`
+    };
+  });
